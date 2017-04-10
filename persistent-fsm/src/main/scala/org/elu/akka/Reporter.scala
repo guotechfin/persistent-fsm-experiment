@@ -17,10 +17,10 @@ object Reporter extends App {
     LeveldbReadJournal.Identifier
   )
 
-  val evts: Source[EventEnvelope, NotUsed] = queries.eventsByPersistenceId("account")
+  val evts: Source[EventEnvelope, NotUsed] = queries.eventsByPersistenceId("account-12")
 
   evts.runForeach { evt => println(s"Event $evt")}
 
-  Thread.sleep(1000)
+  Thread.sleep(2000)
   system.terminate()
 }
